@@ -12,6 +12,9 @@ lines.insert(len(lines)-2, "here")
 
 f = open(filename, "w")
 lines = "".join(lines)
+lines = lines.replace("\n", "") 
+lines = lines.replace("\t", "") 
+
 f.write(lines)
 f.close()
 
