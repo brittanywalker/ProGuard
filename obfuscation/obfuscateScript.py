@@ -7,7 +7,7 @@ f = open(filename, "r")
 lines = f.readlines()
 f.close()
 
-lines.insert(len(lines)-2, "public static double getFullnessLevel() {return fullnessLevel;}")
+lines.insert(len(lines)-2, "public static int whiteNoise(int a, int b) {int c = 0; c = a+b; return a;}")
 
 f = open(filename, "w")
 lines = "".join(lines)
@@ -31,5 +31,3 @@ for line in fileinput.input(filename, inplace=True):
 	sys.stdout.write(line)
 
 '''
-
-fileinput.close()
