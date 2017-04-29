@@ -7,6 +7,7 @@ f = open(filename, "r")
 lines = f.readlines()
 f.close()
 
+lines.insert(len(lines)-2, "public static double getFullnessLevel() {return fullnessLevel;}")
 
 f = open(filename, "w")
 lines = "".join(lines)
