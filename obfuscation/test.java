@@ -1,14 +1,17 @@
 UserProfile {
 
-    private static double fullnessLevel = 8;
+private static double fullnessLevel = 8;
 
+public static double getFullnessLevel() {
+     return fullnessLevel;
+   }    
 
-    public static double gFullnessLevel() {
-        return fullnessLevel;
-    }
+public static void setFullnessLevel(double fullnessLevel) {
+       this.fullnessLevel = fullnessLevel;
+     }
 
-    public static void sFullnessLevel(double fullnessLevel) {
-        this.fullnessLevel = fullnessLevel;
-    }
-here
-}
+public static double getFullnessLevel() {
+         return fullnessLevel;
+     }
+
+ }
