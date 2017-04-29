@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">DrinkUp</string>
+    <string name="welcome_to_drinkup">Welcome to DrinkUp!</string>
+    <string name="_0">0</string>
+
+    <string name="good_morning">Good Morning,</string>
+
+    <string name="you_ve_had">You\'ve had</string>
+    <string name="add_1_glass_250ml">add 1 glass (250ml)</string>
+    <string name="glasses_of_water_today">glasses of water today</string>
+
+    <!-- Strings related to Settings & General -->
+    <string name="title_activity_settings">Settings</string>
+    <string name="pref_header_general">General</string>
+
+    <string name="default_name_title">Name</string>
+    <string name="default_name">John Smith</string>
+
+    <string name="default_glasses_goal_title">Target2 number of glasses of water (per day)</string>
+    <string name="glasses_number_default">8</string>
+
+    <color name="grey">#666666</color>
+    <color name="blue">#4586c6</color>
+
+</resources>
