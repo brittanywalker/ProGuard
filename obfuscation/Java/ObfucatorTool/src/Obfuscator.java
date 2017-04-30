@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 
 /**
  * Created by harry on 29/04/2017.
@@ -28,9 +29,9 @@ import java.security.NoSuchAlgorithmException;
 public class Obfuscator {
     public static void main(String[] args){
         //TODO run python for each file, and auto find XML file / strings
-        runPythonScript("test.java");
+//        runPythonScript("test.java");
         encryptXML();
-        testDecrpyt();
+//        testDecrpyt();
 
         System.out.print("Get Obfuscated");
 
@@ -94,12 +95,15 @@ public class Obfuscator {
         String pass = "password12345678";
         SecretKeySpec secretKey = new SecretKeySpec(pass.getBytes(), "AES");
 
+
         // Encrypt string
         try {
             Cipher c = Cipher.getInstance("AES/ECB/PKCS5Padding");
             c.init(Cipher.ENCRYPT_MODE, secretKey);
 //            encryptedString = new String(c.doFinal(s.getBytes("UTF-8"))); // TODO Is this the right way??
-            encryptedString = new sun.misc.BASE64Encoder().encode(c.doFinal(s.getBytes("UTF-8")));
+            byte [] encryptedBytes = c.doFinal(s.getBytes("UTF-8"));
+            encryptedString = Base64.getEncoder().encodeToString(encryptedBytes);
+//            encryptedString = new sun.misc.BASE64Encoder().encode(encryptedBytes);
 
 
         } catch (NoSuchAlgorithmException e) {
@@ -172,11 +176,12 @@ public class Obfuscator {
         String pass = "password12345678";
         SecretKeySpec secretKey = new SecretKeySpec(pass.getBytes(), "AES");
 
-        // Encrypt string
+        // Decrypt string
         try {
             Cipher c = Cipher.getInstance("AES/ECB/PKCS5Padding");
             c.init(Cipher.DECRYPT_MODE, secretKey);
-            byte[] decodeData = new sun.misc.BASE64Decoder().decodeBuffer(s);
+            byte[] decodeData = Base64.getDecoder().decode(s);
+//            byte[] decodeData = new sun.misc.BASE64Decoder().decodeBuffer(s);
             decryptString = new String(c.doFinal(decodeData), "UTF-8");
 
         } catch (NoSuchAlgorithmException e) {
