@@ -30,6 +30,7 @@ public class Obfuscator {
         //TODO run python for each file, and auto find XML file / strings
         runPythonScript("test.java");
         encryptXML();
+//        testDecrpyt();
 
         System.out.print("Get Obfuscated");
 
@@ -120,4 +121,75 @@ public class Obfuscator {
         //TODO
     }
 
+    private static void testDecrpyt(){
+        try {
+            String pathOfXML = "strings.xml";
+            DocumentBuilderFactory dFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dbuilder = null;
+            dbuilder = dFactory.newDocumentBuilder();
+            Document doc = dbuilder.parse(pathOfXML);
+
+            // Root element
+            Node root = doc.getFirstChild();
+            NodeList stringList = root.getChildNodes();
+            for (int i=0 ; i < stringList.getLength(); i++){ //loops through each node
+                Node node = stringList.item(i);
+                if (node.getNodeName().equals("string")){
+                    String s = node.getTextContent();
+                    s = decryptString(s);
+                    // Sets the text content
+                    node.setTextContent(s);
+                }
+
+            }
+
+            //Once all changes have been made to DOM, write to XML
+            TransformerFactory tFactory = TransformerFactory.newInstance();
+            Transformer trans = tFactory.newTransformer();
+            trans.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(new File(pathOfXML));
+            trans.transform(source, result);
+
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TransformerConfigurationException e) {
+            e.printStackTrace();
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static String decryptString(String s){
+        // Generate secret key
+        String decryptString = "";
+        String pass = "password12345678";
+        SecretKeySpec secretKey = new SecretKeySpec(pass.getBytes(), "AES");
+
+        // Encrypt string
+        try {
+            Cipher c = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            c.init(Cipher.DECRYPT_MODE, secretKey);
+            decryptString = new String(c.doFinal(s.getBytes()), "UTF-8");
+
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (NoSuchPaddingException e) {
+            e.printStackTrace();
+        } catch (InvalidKeyException e) {
+            e.printStackTrace();
+        } catch (BadPaddingException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IllegalBlockSizeException e) {
+            e.printStackTrace();
+        }
+
+        return decryptString;
+    }
 }

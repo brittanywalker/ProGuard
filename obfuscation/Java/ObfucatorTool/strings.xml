@@ -1,24 +1,23 @@
 <resources>
-    <string name="app_name">��\Z�}^p&#24;&#27;&#30;&#23;�0�&#29;</string>
-    <string name="welcome_to_drinkup">Y+*2��.&#2;&#6;�T\9G��F�r&#7;�i��&#20;��N�&amp;ߏ</string>
-    <string name="_0">��X&#22;|�Gtd&#17;���ח�</string>
+    <string name="app_name">DrinkUp</string>
+    <string name="welcome_to_drinkup">Welcome to DrinkUp!</string>
+    <string name="_0">0</string>
 
-    <string name="good_morning">rn�;�&#27;`&#29;&#3;&#17;����&#27;5</string>
+    <string name="good_morning">Good Morning,</string>
 
-    <string name="you_ve_had">��b�Y��}�(ysP��	</string>
-    <string name="add_1_glass_250ml">&#26;G�t��3
-&#29;8���dw��/&#16;K&#29;pZ��j �� 1Z</string>
-    <string name="glasses_of_water_today">Ul&#11;�hӀ�&#2;�Ͳ��PxN�S��&#19;��Lߘ&#15;VD�m</string>
+    <string name="you_ve_had">You\'ve had</string>
+    <string name="add_1_glass_250ml">add 1 glass (250ml)</string>
+    <string name="glasses_of_water_today">glasses of water today</string>
 
     <!-- Strings related to Settings & General -->
-    <string name="title_activity_settings">;ݚn�&#24;B@�u�)�k&#13;�</string>
-    <string name="pref_header_general">�^�&#29;p3A�=��"D�8B</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="pref_header_general">General</string>
 
-    <string name="default_name_title">!i�((�~��&lt;-}&#0;��'</string>
-    <string name="default_name">&#13;�&#28;\���P2�&#3;Dp.t&#8;</string>
+    <string name="default_name_title">Name</string>
+    <string name="default_name">John Smith</string>
 
-    <string name="default_glasses_goal_title">��&#16;�4���b³���b�~I�h�X�&#6;s�&#16;�	�:A8&#5;Q&#15;����&#26;�S�&#21;��</string>
-    <string name="glasses_number_default">:&#5;w�/����I&#15;&#16;T��F</string>
+    <string name="default_glasses_goal_title">Target number of glasses of water (per day)</string>
+    <string name="glasses_number_default">8</string>
 
     <color name="grey">#666666</color>
     <color name="blue">#4586c6</color>
