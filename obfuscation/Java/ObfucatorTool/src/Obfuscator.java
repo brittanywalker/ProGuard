@@ -30,7 +30,7 @@ public class Obfuscator {
         //TODO run python for each file, and auto find XML file / strings
         runPythonScript("test.java");
         encryptXML();
-//        testDecrpyt();
+        testDecrpyt();
 
         System.out.print("Get Obfuscated");
 
@@ -98,7 +98,9 @@ public class Obfuscator {
         try {
             Cipher c = Cipher.getInstance("AES/ECB/PKCS5Padding");
             c.init(Cipher.ENCRYPT_MODE, secretKey);
-            encryptedString = new String(c.doFinal(s.getBytes("UTF-8"))); // TODO Is this the right way??
+//            encryptedString = new String(c.doFinal(s.getBytes("UTF-8"))); // TODO Is this the right way??
+            encryptedString = new sun.misc.BASE64Encoder().encode(c.doFinal(s.getBytes("UTF-8")));
+
 
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -174,7 +176,8 @@ public class Obfuscator {
         try {
             Cipher c = Cipher.getInstance("AES/ECB/PKCS5Padding");
             c.init(Cipher.DECRYPT_MODE, secretKey);
-            decryptString = new String(c.doFinal(s.getBytes()), "UTF-8");
+            byte[] decodeData = new sun.misc.BASE64Decoder().decodeBuffer(s);
+            decryptString = new String(c.doFinal(decodeData), "UTF-8");
 
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -187,6 +190,8 @@ public class Obfuscator {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (IllegalBlockSizeException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
