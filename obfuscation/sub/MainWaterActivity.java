@@ -42,6 +42,7 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 
 public class MainWaterActivity extends AppCompatActivity {
+
     // The number of water level images
     private final double numberOfImages = 8;
 
