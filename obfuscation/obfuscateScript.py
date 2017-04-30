@@ -35,30 +35,30 @@ for filename in os.listdir(directory):
         for line, i in zip(lines, range(len(lines))):
             # if the line is a class signature then insert the white noise class variables
             if classSig.match(line):
-                lines.insert(i+1, "private static int userTime = whiteNoise(10,7);\n private static int glass = 8;\n\
-                private static int drink = 12;\n private static int hourTime = 60;\n ")
+                lines.insert(i+1, "private static int glass = 8;\n\
+                private static int drink = 12;\n private static int hourTime = 60;\n private static int userTime = calcWaterMethod(glass,drink);\n  ")
             # if the line is a method signature insert the white method calls
             if methodSig.match(line):
-                lines.insert(i+1, "int a = 8;\n int variable = whiteNoise(userTime,a);\n")
+                lines.insert(i+1, "int a = 8;\n int variable = calcWaterMethod(userTime,a);\n")
 
         # loop through the file backwards to find the last closing brace
         for j in range(len(lines)-1, 0, -1):
             if lines[j].find("}") > -1:
                 # at the last closing brace insert the white noise methods
-                lines.insert(j, "public static int whiteNoise(int a, int b) {\nCalendar c = Calendar.getInstance();\
+                lines.insert(j, "public static int calcWaterMethod(int a, int b) {\nCalendar c = Calendar.getInstance();\
                 \nint currentHour = c.get(Calendar.HOUR_OF_DAY);\
                 \nint currentMinute = c.get(Calendar.MINUTE);\
                 \nuserTime = currentHour * 60 + currentMinute + a/b;\
                 \nuserTime = min(userTime, 720) + b; return a;}\
-                 \npublic static int whiteNoise2(int a, int b, int c){\n\tint d = a+b/c; return whiteNoise(a,c);}")
+                 \npublic static int calcWaterMethod2(int a, int b, int c){\n\tint d = a+b/c; return calcWaterMethod(a,c);}")
                 break
 
         # open the file for writing and write back the lines
         f = open(directory + "/" + filename, "w")
         lines = "".join(lines)
         # replace any if statements with white noise opaque predecates
-        lines = lines.replace("if (", "if (whiteNoise(userTime,8) >= whiteNoise2(glass,drink,hourTime) && ")
-        lines = lines.replace("if(", "if (whiteNoise(userTime,8) >= whiteNoise2(glass,drink,hourTime) && ")
+        lines = lines.replace("if (", "if (calcWaterMethod(userTime,8) >= calcWaterMethod2(glass,drink,hourTime) && ")
+        lines = lines.replace("if(", "if (calcWaterMethod(userTime,8) >= calcWaterMethod2(glass,drink,hourTime) && ")
         # replace new lines and tabs to reduce readability
         lines = lines.replace("\n", "")
         lines = lines.replace("\t", "")
