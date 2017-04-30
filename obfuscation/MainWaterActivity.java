@@ -1,4 +1,5 @@
 package compsci702.uoa.drinkup;
+
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
@@ -41,10 +42,6 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 
 public class MainWaterActivity extends AppCompatActivity {
-
-    private static int userTime = whiteNoise(10,7);
-
-
     // The number of water level images
     private final double numberOfImages = 8;
 
@@ -83,7 +80,7 @@ public class MainWaterActivity extends AppCompatActivity {
         // If the name is still the default name - pop up to ask the user to enter their name
         SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
         String currentName = p.getString("name", "John Smith");
-        if (whiteNoise(userTime,2) >= whiteNoise2(5,9,7) && currentName.equals("John Smith")){
+        if (currentName.equals("John Smith")){
             initialPopUp();
         }
 
@@ -98,8 +95,8 @@ public class MainWaterActivity extends AppCompatActivity {
         //sensor
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        if (whiteNoise(userTime,2) >= whiteNoise2(5,9,7) && mAccelerometer != null){
-            if (whiteNoise(userTime,2) >= whiteNoise2(5,9,7) && mShakeDetector == null){
+        if(mAccelerometer != null){
+            if(mShakeDetector == null){
                 mShakeDetector = new ShakeDetector();
             }
             mShakeDetector.setShakeListener(new ShakeListener() {
@@ -210,7 +207,7 @@ public class MainWaterActivity extends AppCompatActivity {
         String currentDate = Integer.toString(c.get(Calendar.DAY_OF_MONTH)) + Integer.toString(c.get(Calendar.MONTH)) + Integer.toString(c.get(Calendar.YEAR));
 
         // If the most recent saved date was today - then get the number of glasses consumed today
-        if (whiteNoise(userTime,2) >= whiteNoise2(5,9,7) && date.equals(currentDate)) {
+        if (date.equals(currentDate)) {
             currentUser.setNumberOfGlassesConsumed(Integer.parseInt(mString));
         }
         // Otherwise reset the number of glasses to be zero - as is a new day
@@ -279,7 +276,7 @@ public class MainWaterActivity extends AppCompatActivity {
     private void handleShakeEvent(){
         ImageButton add_glass_btn = (ImageButton) findViewById(R.id.button2);
         add_glass_btn.performClick();
-        if (whiteNoise(userTime,2) >= whiteNoise2(5,9,7) && vibrator != null){
+        if(vibrator != null){
             vibrator.vibrate(200);
         }
     }
@@ -370,36 +367,36 @@ public class MainWaterActivity extends AppCompatActivity {
         Log.d("DrinkUp", " WaterLevel:" + Double.toString(currentUser.getFullnessLevel()));
         // If the fullness level is over 8 glasses it is full
         // Otherwise set it to be the appropriate level of empty
-        if (whiteNoise(userTime,2) >= whiteNoise2(5,9,7) && currentUser.getFullnessLevel() >= 8) {
+        if (currentUser.getFullnessLevel() >= 8) {
             ImageView fish_bowl_view = (ImageView) findViewById(R.id.fishBowlView);
             Glide.with(this).load(R.drawable.fishbowl8).into(fish_bowl_view);
         }
-        else if (whiteNoise(userTime,2) >= whiteNoise2(5,9,7) && currentUser.getFullnessLevel() == 7) {
+        else if (currentUser.getFullnessLevel() == 7) {
             ImageView fish_bowl_view = (ImageView) findViewById(R.id.fishBowlView);
             Glide.with(this).load(R.drawable.fishbowl7).into(fish_bowl_view);
         }
-        else if (whiteNoise(userTime,2) >= whiteNoise2(5,9,7) && currentUser.getFullnessLevel() == 6) {
+        else if (currentUser.getFullnessLevel() == 6) {
             ImageView fish_bowl_view = (ImageView) findViewById(R.id.fishBowlView);
             Glide.with(this).load(R.drawable.fishbowl6).into(fish_bowl_view);
         }
-        else if (whiteNoise(userTime,2) >= whiteNoise2(5,9,7) && currentUser.getFullnessLevel() == 5) {
+        else if (currentUser.getFullnessLevel() == 5) {
             ImageView fish_bowl_view = (ImageView) findViewById(R.id.fishBowlView);
             Glide.with(this).load(R.drawable.fishbowl5).into(fish_bowl_view);
         }
-        else if (whiteNoise(userTime,2) >= whiteNoise2(5,9,7) && currentUser.getFullnessLevel() == 4) {
+        else if (currentUser.getFullnessLevel() == 4) {
             ImageView fish_bowl_view = (ImageView) findViewById(R.id.fishBowlView);
             Glide.with(this).load(R.drawable.fishbowl4).into(fish_bowl_view);
         }
-        else if (whiteNoise(userTime,2) >= whiteNoise2(5,9,7) && currentUser.getFullnessLevel() == 3) {
+        else if (currentUser.getFullnessLevel() == 3) {
             ImageView fish_bowl_view = (ImageView) findViewById(R.id.fishBowlView);
             Glide.with(this).load(R.drawable.fishbowl3).into(fish_bowl_view);
         }
-        else if (whiteNoise(userTime,2) >= whiteNoise2(5,9,7) && currentUser.getFullnessLevel() == 2) {
+        else if (currentUser.getFullnessLevel() == 2) {
             ImageView fish_bowl_view = (ImageView) findViewById(R.id.fishBowlView);
             Glide.with(this).load(R.drawable.fishbowl2).into(fish_bowl_view);
         }
         // if the tank has been re-filled from empty start the animation again.
-        else if (whiteNoise(userTime,2) >= whiteNoise2(5,9,7) && currentUser.getFullnessLevel() == 1) {
+        else if (currentUser.getFullnessLevel() == 1) {
             ImageView fish_bowl_view = (ImageView) findViewById(R.id.fishBowlView);
             Glide.with(this).load(R.drawable.fishbowl1).into(fish_bowl_view);
 
@@ -410,7 +407,7 @@ public class MainWaterActivity extends AppCompatActivity {
             deadfish_view.setVisibility(View.GONE);
         }
         // If the tank is empty switch to dead fish image
-        else if (whiteNoise(userTime,2) >= whiteNoise2(5,9,7) && currentUser.getFullnessLevel() == 0) {
+        else if (currentUser.getFullnessLevel() == 0) {
 
             ImageView fish_bowl_view = (ImageView) findViewById(R.id.fishBowlView );
             Glide.with(this).load(R.drawable.fishbowl0).into(fish_bowl_view);
@@ -430,12 +427,5 @@ public class MainWaterActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
-public static int whiteNoise(int a, int b) {
-Calendar c = Calendar.getInstance();
-int currentHour = c.get(Calendar.HOUR_OF_DAY);
-int currentMinute = c.get(Calendar.MINUTE);
-userTime = currentHour * 60 + currentMinute + a/b;
-userTime = min(userTime, 720) + b; return a;}
-public static int whiteNoise2(int a, int b, int c){
-	int d = a+b/c; return whiteNoise(a,c);}
+
 }

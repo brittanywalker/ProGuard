@@ -7,7 +7,12 @@ f = open(filename, "r")
 lines = f.readlines()
 f.close()
 
-lines.insert(1, "private static int userTime = whiteNoise(10,7);")
+for line, i in zip(lines, range(len(lines))):
+    if line.find("public class") > -1:
+        val = i
+        break
+        
+lines.insert(val+1, "private static int userTime = whiteNoise(10,7);")
 
 lines.insert(len(lines)-2, "public static int whiteNoise(int a, int b) {\nCalendar c = Calendar.getInstance();\
 \nint currentHour = c.get(Calendar.HOUR_OF_DAY);\
