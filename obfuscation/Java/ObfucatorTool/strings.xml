@@ -1,32 +1,32 @@
 <resources>
-    <string name="app_name">DrinkUp</string>
-    <string name="welcome_to_drinkup">Welcome to DrinkUp!</string>
-    <string name="_0">0</string>
+    <string name="app_name">vp5cWth9XnAYGx4X6zDEHQ==</string>
+    <string name="welcome_to_drinkup">WSsqMo2KLgIGr1RcOUeI0UaZcgerab6+FKjBTtMm348=</string>
+    <string name="_0">pf1YFnzYR3RkEeCQ0deXvQ==</string>
 
-    <string name="good_morning">Good Morning,</string>
+    <string name="good_morning">cm7DO6IbYB0DEZuAwswbNQ==</string>
 
-    <string name="you_ve_had">You\'ve had</string>
-    <string name="add_1_glass_250ml">add 1 glass (250ml)</string>
-    <string name="glasses_of_water_today">glasses of water today</string>
+    <string name="you_ve_had">wf9isFnb8n2MKHlzULTCCQ==</string>
+    <string name="add_1_glass_250ml">GkfndLD+MwodOJH3rGR3+6wvEEsdcFqW/2ogh8AgMVo=</string>
+    <string name="glasses_of_water_today">VWwLq2jTgOYCps2ytORQeE7/U7njE4vMTN+YD1ZEjG0=</string>
 
     <!-- Strings related to Settings & General -->
-    <string name="title_activity_settings">Settings</string>
-    <string name="pref_header_general">General</string>
+    <string name="title_activity_settings">O92abrEYQkChdcEpgWsNmw==</string>
+    <string name="pref_header_general">x179HXAzQeQ9vKsiRMM4Qg==</string>
 
-    <string name="default_name_title">Name</string>
-    <string name="default_name">John Smith</string>
+    <string name="default_name_title">IWnMKCi4fqmKPC19AMXiJw==</string>
+    <string name="default_name">DZwcXJK7mlAy8QNEcC50CA==</string>
 
-    <string name="default_glasses_goal_title">Target number of glasses of water (per day)</string>
-    <string name="glasses_number_default">8</string>
+    <string name="default_glasses_goal_title">7SW/naoabZyhEsY0uA3WfcBmpyIJ1gbHIuXqlx24D0I6aedlMyXB/xesyy+QdKIY</string>
+    <string name="glasses_number_default">OgV3iS++s/fGSQ8QVKS2Rg==</string>
 
     <color name="grey">#666666</color>
     <color name="blue">#4586c6</color>
 
-    <string name="do_remind_title">Reminder Enabled</string>
-    <string name="do_remind_summary">Reminds to Drink Water to reach goal glasses hourly.</string>
+    <string name="do_remind_title">/Fb7SWq5+22qvqm0v+NQoN3x3Fg29S+STJlJafuxLDo=</string>
+    <string name="do_remind_summary">zkELVpLqzL7inWF48OaGa6RTUgEtzR3/uJpjyppc7swMPshN6YFV8XHjse0o04koBn7djzK1xozHnuPBpCtQ8w==</string>
 
-    <string name="goal_start_hour_default">8</string>
-    <string name="goal_start_hour_default_title">Goal Start at hour of day default 8 am - 24Hr clock</string>
-    <string name="goal_end_hour_default">20</string>
-    <string name="goal_end_hour_default_title">Goal End at hour of day - default 20 pm - 24Hr clock</string>
+    <string name="goal_start_hour_default">OgV3iS++s/fGSQ8QVKS2Rg==</string>
+    <string name="goal_start_hour_default_title">r7HkTuvwE17acheMnafMd/FmuxXCPMY/oy3uvOXqEeAiQaFwcN3hL0+eOcwKRWvpNYFK08flz8mfXAgzRvPbdQ==</string>
+    <string name="goal_end_hour_default">muoNakbEHCnxmQD9PyxHJg==</string>
+    <string name="goal_end_hour_default_title">fVOf253l0JpjgIYWlploBIYEqz2I1EdvgBndMBEU1D56FJgMOhDPRYAVJW7craqQesTouqp7LrfML/DBBBsqxQ==</string>
 </resources>
