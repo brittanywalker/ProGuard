@@ -17,25 +17,53 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.awt.*;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
+import java.util.Scanner;
 
 /**
  * Created by harry on 29/04/2017.
  */
 public class Obfuscator {
     public static void main(String[] args){
-        //TODO run python for each file, and auto find XML file / strings
 //        runPythonScript("test.java");
-        encryptXML();
+//        encryptXML();
 //        testDecrpyt();
+
+        convertStrings();
 
         System.out.print("Get Obfuscated");
 
     }
+
+
+    private static void convertStrings(){
+        try {
+            File file = new File("FrontScreenActivity.java");
+            Scanner scanner = new Scanner(file);
+            String pattern = "\"*\"";
+            while(scanner.hasNextLine()){
+                String currentLine  = scanner.nextLine();
+                if (currentLine.matches(pattern) ){ // has string literal in it
+                    System.out.println(currentLine);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+
+
+
 
     // Runs python script, takes class file as input
     private static void runPythonScript(String classFile){
