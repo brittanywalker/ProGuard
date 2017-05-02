@@ -33,10 +33,11 @@ public class Obfuscator {
 //        runPythonScript("test.java");
 //        encryptXML();
 //        testDecrpyt();
+        String s = "ReminderServiceActivated";
+        System.out.print("DecryptUtilityClass.decryptString(\"" + encryptString(s) + "\")");
 
-        convertStrings();
+//        convertStrings();
 
-        System.out.print("Get Obfuscated");
 
     }
 
@@ -209,7 +210,6 @@ public class Obfuscator {
             Cipher c = Cipher.getInstance("AES/ECB/PKCS5Padding");
             c.init(Cipher.DECRYPT_MODE, secretKey);
             byte[] decodeData = Base64.getDecoder().decode(s);
-//            byte[] decodeData = new sun.misc.BASE64Decoder().decodeBuffer(s);
             decryptString = new String(c.doFinal(decodeData), "UTF-8");
 
         } catch (NoSuchAlgorithmException e) {
@@ -223,8 +223,6 @@ public class Obfuscator {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (IllegalBlockSizeException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         }
 
