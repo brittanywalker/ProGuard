@@ -2,9 +2,21 @@ import sys, os, glob
 import fileinput, re
 
 """
-This tool is an obfuscation tool for COMPSCI702 project 1
+COMPSCI702 Group Project
+This tool obfuscates .java files using control and layout techniques.
 
-This tool reads in a directory from command line and obfuscates any java files
+----------------
+
+To use the tool, you will need to have Python installed.
+Then move this script into the directory that contains the sub-directory holding your .java files.
+In order for all of your .java files to be obfuscated at once, they all need to be within the sub-directory.
+Open your command line and navigate to the directory where you have saved this script.
+Type into command line: python3 obfuscateScript.py sub-directory
+where sub-directory is the name of the directory containing your .java files.
+
+-----WARNING-----
+Your files will be updated, and the originals will NOT be conserved. So we highly recommend saving
+your unobfuscated files somewhere else before running this tool.
 
 ...
 """
@@ -56,7 +68,7 @@ for filename in os.listdir(directory):
         # open the file for writing and write back the lines
         f = open(directory + "/" + filename, "w")
         lines = "".join(lines)
-        # replace any if statements with white noise opaque predecates
+        # replace any if statements with white noise opaque predicates
         lines = lines.replace("if (", "if (calcWaterMethod(userTime,8) >= calcWaterMethod2(glass,drink,hourTime) && ")
         lines = lines.replace("if(", "if (calcWaterMethod(userTime,8) >= calcWaterMethod2(glass,drink,hourTime) && ")
         # replace new lines and tabs to reduce readability
